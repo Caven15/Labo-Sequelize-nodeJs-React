@@ -10,6 +10,7 @@ const livreModel = require("./tables/livre_model")
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: "mysql",
+    port: 3308
     // logging: false   => permet de réduire les infos sql dans la console
 })
 const db = {
@@ -24,20 +25,20 @@ const db = {
 
 // ici on ajoute les associations 
     // un livre a un seul auteur
-        livre.hasOne(auteur);
-        auteur.belongsTo(livre);
+        db.auteur.hasMany(db.livre);
+        db.livre.belongsTo(db.auteur);
 
     // un livre a un seul domaine
-        livre.hasOne(domaine);
-        domaine.belongsTo(livre);
+        db.domaine.hasMany(db.livre);
+        db.livre.belongsTo(db.domaine);
 
     // un enprunt a un seul client
-        emprunt.hasOne(client);
-        client.belongsTo(emprunt);
+        db.client.hasMany(db.emprunt);
+        db.emprunt.belongsTo(db.client);
 
     // un emprunt a un seul livre
-        emprunt.hasOne(livre);
-        livre.belongsTo(emprunt);
+        db.livre.hasMany(db.emprunt);
+        db.emprunt.belongsTo(db.livre);
 
 module.exports = db
 

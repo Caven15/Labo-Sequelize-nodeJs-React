@@ -9,11 +9,11 @@ const clientModel = (Sequelize, DataTypes) => {
             allowNull: false
         },
         date_naissance: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false
         },
         code_postal: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     })

@@ -13,11 +13,11 @@ const livreModel = (Sequelize, DataTypes) => {
             allowNull: false
         },
         annee: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false
         },
         nbr_page: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     })

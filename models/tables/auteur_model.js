@@ -10,7 +10,7 @@ const auteurModel = (Sequelize, DataTypes) => {
             allowNull: false
         },
         date_naissance: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false
         }
     })

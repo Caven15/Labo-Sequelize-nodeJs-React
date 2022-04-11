@@ -1,4 +1,5 @@
 //#region imports
+    const db = require("./models/connection_db")
     const http = require("http")
     const url = require("url")
     //imports des controllers
@@ -6,6 +7,7 @@
 //#endregion
 
 //#region connexion
+    db.sequelize.sync({}) // force: true
     http.createServer((request, response) => {
         const currentUrl = url.parse(request.url, true)
         const path = currentUrl.pathname
@@ -126,6 +128,6 @@
                 //...
             }
         //#endregion
-        
-    })
+
+    }).listen(3000)
 //#endregion
