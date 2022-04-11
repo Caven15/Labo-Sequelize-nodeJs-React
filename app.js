@@ -2,8 +2,9 @@
     const db = require("./models/connection_db")
     const http = require("http")
     const url = require("url")
+    const getRequestData = require("./helper/get_request_data")
     //imports des controllers
-        //...
+        const auteurController = require("./controller/auteur")
 //#endregion
 
 //#region connexion
@@ -17,23 +18,29 @@
         //#region auteur
             // get all
             if (path === "/auteur" && request.method === 'GET' && !query.id){
-                //...
+                auteurController.getAllAuteurs(response)
             }
             // get one
             if (path === "/auteur" && request.method === 'GET' && query.id){
-                //...
+                auteurController.getOneAuteur(response, query.id)
             }
             // create
-            if (path === "/auteur" && request.method === 'POST'){
-                //...
+            if (path === "/auteur" && request.method === 'POST' && query.nom && query.prenom && query.date_naissance){
+                getRequestData(request)
+                    .then((data) => {
+                        auteurController.insertAuteur(response, data.nom, data.prenom, data.date_naissance)
+                    })
             }
             // update
-            if (path === "/auteur" && request.method === 'PUT'){
-                //...
+            if (path === "/auteur" && request.method === 'PUT' && query.id  && query.nom && query.prenom && query.date_naissance){
+                getRequestData(request)
+                    .then((data) => {
+                        auteurController.updateAuteur(response, data.nom, data.prenom, data.date_naissance, query.id)
+                    })
             }
             // delete
-            if (path === "/auteur" && request.method === 'DELETE'){
-                //...
+            if (path === "/auteur" && request.method === 'DELETE' && query.id){
+                auteurController.deleteAuteur(response, query.id)
             }
         //#endregion
 

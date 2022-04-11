@@ -10,8 +10,8 @@ const livreModel = require("./tables/livre_model")
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: "mysql",
-    port: 3308
-    // logging: false   => permet de réduire les infos sql dans la console
+    port: 3308,
+    loging: false  // => permet de réduire les infos sql dans la console
 })
 const db = {
     Sequelize: Sequelize,
