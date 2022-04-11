@@ -25,10 +25,10 @@ const auteurController = {
             prenom: prenom,
             date_naissance: date_naissance
         })
-            .then(() => {
-                response.write(JSON.stringify({message : "auteur inserer avec succès !"}))
-                response.end()
-            })
+        .then(() => {
+            response.write(JSON.stringify({message : "auteur inserer avec succès !"}))
+            response.end()
+        })
     },
     // update
     updateAuteur(response, nom, prenom, date_naissance, id) {
@@ -37,10 +37,10 @@ const auteurController = {
             prenom: prenom,
             date_naissance: date_naissance
         },{where: {id: id}})
-            .then(() => {
-                response.write(JSON.stringify({message: "auteur mis a jour avec succès !"}))
-                response.end()
-            })
+        .then(() => {
+            response.write(JSON.stringify({message: "auteur mis a jour avec succès !"}))
+            response.end()
+        })
     },
     // delete
     deleteAuteur(response, id) {

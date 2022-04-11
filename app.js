@@ -5,6 +5,7 @@
     const getRequestData = require("./helper/get_request_data")
     //imports des controllers
         const auteurController = require("./controller/auteur")
+        const clientController = require("./controller/client")
 //#endregion
 
 //#region connexion
@@ -25,14 +26,14 @@
                 auteurController.getOneAuteur(response, query.id)
             }
             // create
-            if (path === "/auteur" && request.method === 'POST' && query.nom && query.prenom && query.date_naissance){
+            if (path === "/auteur" && request.method === 'POST'){
                 getRequestData(request)
                     .then((data) => {
                         auteurController.insertAuteur(response, data.nom, data.prenom, data.date_naissance)
                     })
             }
             // update
-            if (path === "/auteur" && request.method === 'PUT' && query.id  && query.nom && query.prenom && query.date_naissance){
+            if (path === "/auteur" && request.method === 'PUT' && query.id){
                 getRequestData(request)
                     .then((data) => {
                         auteurController.updateAuteur(response, data.nom, data.prenom, data.date_naissance, query.id)
@@ -47,23 +48,29 @@
         //#region client
             // get all
             if (path === "/client" && request.method === 'GET' && !query.id){
-                //...
+                clientController.getAllClients(response)
             }
             // get one
             if (path === "/client" && request.method === 'GET' && query.id){
-                //...
+                clientController.getOneClient(response, query.id)
             }
             // create
             if (path === "/client" && request.method === 'POST'){
-                //...
+                getRequestData(request)
+                    .then((data) => {
+                        clientController.insertClient(response, data.nom, data.prenom, data.date_naissance, data.code_postal)
+                    })
             }
             // update
-            if (path === "/client" && request.method === 'PUT'){
-                //...
+            if (path === "/client" && request.method === 'PUT' && query.id){
+                getRequestData(request)
+                    .then((data) => {
+                        clientController.updateClient(response, data.nom, data.prenom, data.date_naissance, query.id)
+                    })
             }
             // delete
-            if (path === "/client" && request.method === 'DELETE'){
-                //...
+            if (path === "/client" && request.method === 'DELETE' && query.id){
+                clientController.deleteClient(response, query.id)
             }
         //#endregion
 

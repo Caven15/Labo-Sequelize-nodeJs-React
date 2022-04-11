@@ -1,4 +1,3 @@
-
 const auteurModel = (Sequelize, DataTypes) => {
     const auteur = Sequelize.define("auteur", {
         nom: {
