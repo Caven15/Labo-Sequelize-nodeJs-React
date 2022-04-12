@@ -108,8 +108,20 @@
 
         //#region emprunt
             // get all
-            if (path === "/emprunt" && request.method === 'GET' && !query.id){
+            if (path === "/emprunt/getAll" && request.method === 'GET' && !query.id){
                 empruntController.getAllEmprunts(response)
+            }
+            // get all emprunt by clientId
+            if (path === "/emprunt/getAllByClient" && request.method === 'GET' && query.clientId){
+                empruntController.getAllEmpruntsByClientId(response, query.clientId)
+            }
+            // get all active emprunt by clientId
+            if (path === "/emprunt/getAllActiveByClient" && request.method === 'GET' && query.clientId){
+                empruntController.getAllActiveEmpruntsByClientId(response, query.clientId)
+            }
+            // get all emprunt finis
+            if (path === "/emprunt/Fini" && request.method === 'GET'){
+                empruntController.getAllEmpruntsFinis(response)
             }
             // get one
             if (path === "/emprunt" && request.method === 'GET' && query.id){

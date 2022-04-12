@@ -10,6 +10,33 @@ const empruntController = {
                 response.end()
             })
     },
+    // get all emprunts by clientId
+    getAllEmpruntsByClientId(response, clientId) {
+        db.emprunt.findAll({where: {clientId: clientId}
+        })
+            .then((data) => {
+                response.write(JSON.stringify(data,null, 1))
+                response.end()
+            })
+    },
+    // get all emprunts by clientId
+    getAllActiveEmpruntsByClientId(response, clientId) {
+        db.emprunt.findAll({where: {clientId: clientId, statut: 1}
+        })
+            .then((data) => {
+                response.write(JSON.stringify(data,null, 1))
+                response.end()
+            })
+    },
+    // get all emprunts terminer
+    getAllEmpruntsFinis(response) {
+        db.emprunt.findAll({where: {statut: 0}
+        })
+            .then((data) => {
+                response.write(JSON.stringify(data,null, 1))
+                response.end()
+            })
+    },
     // get one
     getOneEmprunt(response, id){
         db.emprunt.findByPk(id)
