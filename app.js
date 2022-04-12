@@ -107,37 +107,45 @@
         //#endregion
 
         //#region emprunt
-            // // get all
-            // if (path === "/emprunt" && request.method === 'GET' && !query.id){
-            //     empruntController.getAllEmprunts(response)
-            // }
-            // // get one
-            // if (path === "/emprunt" && request.method === 'GET' && query.id){
-            //     empruntController.getOneEmprunt(response, query.id)
-            // }
-            // // create
-            // if (path === "/emprunt" && request.method === 'POST'){
-            //     getRequestData(request)
-            //         .then((data) => {
-            //             empruntController.insertEmprunt(response, data.date_debut, data.date_fin, data.statut, data.clientId, data.livreId)
-            //         })
-            // }
-            // // update
-            // if (path === "/emprunt" && request.method === 'PUT' && query.id){
-            //     getRequestData(request)
-            //         .then((data) => {
-            //             empruntController.updateEmprunt(response, data.nom, data.libelle, query.id)
-            //         })
-            // }
-            // // delete
-            // if (path === "/emprunt" && request.method === 'DELETE' && query.id){
-            //     empruntController.deleteEmprunt(response, query.id)
-            // }
+            // get all
+            if (path === "/emprunt" && request.method === 'GET' && !query.id){
+                empruntController.getAllEmprunts(response)
+            }
+            // get one
+            if (path === "/emprunt" && request.method === 'GET' && query.id){
+                empruntController.getOneEmprunt(response, query.id)
+            }
+            // create
+            if (path === "/emprunt" && request.method === 'POST'){
+                getRequestData(request)
+                    .then((data) => {
+                        empruntController.insertEmprunt(response, data.date_debut, data.date_fin, data.statut, data.clientId, data.livreId)
+                    })
+            }
+            // update
+            if (path === "/emprunt" && request.method === 'PUT' && query.id){
+                getRequestData(request)
+                    .then((data) => {
+                        empruntController.updateEmprunt(response, data.date_debut, data.date_fin, data.statut, data.clientId, data.livreId, query.id)
+                    })
+            }
+            // delete
+            if (path === "/emprunt" && request.method === 'DELETE' && query.id){
+                empruntController.deleteEmprunt(response, query.id)
+            }
         //#endregion
 
         //#region livre
             // get all
             if (path === "/livre" && request.method === 'GET' && !query.id){
+                if (query.available !== undefined) {
+                    if (query.available) {
+                        // Appelé la fonction qui va chercher les livres disponible
+                    }
+                    else {
+                        // Appelé la fonction va chercher les livres indisponibles
+                    }
+                }
                 livreController.getAllLivres(response)
             }
             // get one
