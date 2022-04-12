@@ -6,6 +6,8 @@
     //imports des controllers
         const auteurController = require("./controller/auteur")
         const clientController = require("./controller/client")
+        const domaineController = require("./controller/domaine")
+        const empruntController = require("./controller/emprunt")
 //#endregion
 
 //#region connexion
@@ -77,70 +79,88 @@
         //#region domaine
             // get all
             if (path === "/domaine" && request.method === 'GET' && !query.id){
-                //...
+                domaineController.getAllDomaines(response)
             }
             // get one
             if (path === "/domaine" && request.method === 'GET' && query.id){
-                //...
+                domaineController.getOneDomaine(response, query.id)
             }
             // create
             if (path === "/domaine" && request.method === 'POST'){
-                //...
+                getRequestData(request)
+                    .then((data) => {
+                        domaineController.insertDomaine(response, data.nom, data.libelle)
+                    })
             }
             // update
-            if (path === "/domaine" && request.method === 'PUT'){
-                //...
+            if (path === "/domaine" && request.method === 'PUT' && query.id){
+                getRequestData(request)
+                    .then((data) => {
+                        domaineController.updateDomaine(response, data.nom, data.libelle, query.id)
+                    })
             }
             // delete
-            if (path === "/domaine" && request.method === 'DELETE'){
-                //...
+            if (path === "/domaine" && request.method === 'DELETE' && query.id){
+                domaineController.deleteDomaine(response, query.id)
             }
         //#endregion
 
         //#region emprunt
-            // get all
-            if (path === "/emprunt" && request.method === 'GET' && !query.id){
-                //...
-            }
-            // get one
-            if (path === "/emprunt" && request.method === 'GET' && query.id){
-                //...
-            }
-            // create
-            if (path === "/emprunt" && request.method === 'POST'){
-                //...
-            }
-            // update
-            if (path === "/emprunt" && request.method === 'PUT'){
-                //...
-            }
-            // delete
-            if (path === "/emprunt" && request.method === 'DELETE'){
-                //...
-            }
+            // // get all
+            // if (path === "/emprunt" && request.method === 'GET' && !query.id){
+            //     empruntController.getAllEmprunts(response)
+            // }
+            // // get one
+            // if (path === "/emprunt" && request.method === 'GET' && query.id){
+            //     empruntController.getOneEmprunt(response, query.id)
+            // }
+            // // create
+            // if (path === "/emprunt" && request.method === 'POST'){
+            //     getRequestData(request)
+            //         .then((data) => {
+            //             empruntController.insertEmprunt(response, data.date_debut, data.date_fin, data.statut, data.clientId, data.livreId)
+            //         })
+            // }
+            // // update
+            // if (path === "/emprunt" && request.method === 'PUT' && query.id){
+            //     getRequestData(request)
+            //         .then((data) => {
+            //             empruntController.updateEmprunt(response, data.nom, data.libelle, query.id)
+            //         })
+            // }
+            // // delete
+            // if (path === "/emprunt" && request.method === 'DELETE' && query.id){
+            //     empruntController.deleteEmprunt(response, query.id)
+            // }
         //#endregion
 
         //#region livre
-            // get all
-            if (path === "/livre" && request.method === 'GET' && !query.id){
-                //...
-            }
-            // get one
-            if (path === "/livre" && request.method === 'GET' && query.id){
-                //...
-            }
-            // create
-            if (path === "/livre" && request.method === 'POST'){
-                //...
-            }
-            // update
-            if (path === "/livre" && request.method === 'PUT'){
-                //...
-            }
-            // delete
-            if (path === "/livre" && request.method === 'DELETE'){
-                //...
-            }
+            // // get all
+            // if (path === "/livre" && request.method === 'GET' && !query.id){
+            //     livreController.getAllLivres(response)
+            // }
+            // // get one
+            // if (path === "/livre" && request.method === 'GET' && query.id){
+            //     livreController.getOneLivre(response, query.id)
+            // }
+            // // create
+            // if (path === "/livre" && request.method === 'POST'){
+            //     getRequestData(request)
+            //         .then((data) => {
+            //             livreController.insertLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId)
+            //         })
+            // }
+            // // update
+            // if (path === "/livre" && request.method === 'PUT' && query.id){
+            //     getRequestData(request)
+            //         .then((data) => {
+            //             livreController.updateLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId, query.id)
+            //         })
+            // }
+            // // delete
+            // if (path === "/livre" && request.method === 'DELETE' && query.id){
+            //     livreController.deleteLivre(response, query.id)
+            // }
         //#endregion
 
     }).listen(3000)
