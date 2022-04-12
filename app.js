@@ -8,6 +8,7 @@
         const clientController = require("./controller/client")
         const domaineController = require("./controller/domaine")
         const empruntController = require("./controller/emprunt")
+        const livreController = require("./controller/livre")
 //#endregion
 
 //#region connexion
@@ -135,32 +136,32 @@
         //#endregion
 
         //#region livre
-            // // get all
-            // if (path === "/livre" && request.method === 'GET' && !query.id){
-            //     livreController.getAllLivres(response)
-            // }
-            // // get one
-            // if (path === "/livre" && request.method === 'GET' && query.id){
-            //     livreController.getOneLivre(response, query.id)
-            // }
-            // // create
-            // if (path === "/livre" && request.method === 'POST'){
-            //     getRequestData(request)
-            //         .then((data) => {
-            //             livreController.insertLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId)
-            //         })
-            // }
-            // // update
-            // if (path === "/livre" && request.method === 'PUT' && query.id){
-            //     getRequestData(request)
-            //         .then((data) => {
-            //             livreController.updateLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId, query.id)
-            //         })
-            // }
-            // // delete
-            // if (path === "/livre" && request.method === 'DELETE' && query.id){
-            //     livreController.deleteLivre(response, query.id)
-            // }
+            // get all
+            if (path === "/livre" && request.method === 'GET' && !query.id){
+                livreController.getAllLivres(response)
+            }
+            // get one
+            if (path === "/livre" && request.method === 'GET' && query.id){
+                livreController.getOneLivre(response, query.id)
+            }
+            // create
+            if (path === "/livre" && request.method === 'POST'){
+                getRequestData(request)
+                    .then((data) => {
+                        livreController.insertLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId)
+                    })
+            }
+            // update
+            if (path === "/livre" && request.method === 'PUT' && query.id){
+                getRequestData(request)
+                    .then((data) => {
+                        livreController.updateLivre(response, data.titre, data.langue, data.isbn, data.annee , data.nbr_page, data.auteurId, data.domaineId, query.id)
+                    })
+            }
+            // delete
+            if (path === "/livre" && request.method === 'DELETE' && query.id){
+                livreController.deleteLivre(response, query.id)
+            }
         //#endregion
 
     }).listen(3000)
