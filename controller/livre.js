@@ -79,6 +79,41 @@ const livreController = {
             response.write(JSON.stringify({message: "livre suprimmer avec succès !"}))
             response.end()
         })
+    },
+
+    async getLivreEmprunter(response) {
+        const data = await db.emprunt.findAll({
+            where: {
+                statut: true
+            }
+        })
+        const livresEmprunter = []
+        for (const element of data) {
+            const livre = await element.getLivre()
+            livresEmprunter.push(livre)
+        }
+
+        response.write(JSON.stringify(livresEmprunter))
+        response.end()
+    },
+
+    async getLivrePasEmprunter(response) {
+        const data = await db.emprunt.findAll({
+            where: {
+                statut: true
+            }
+        })
+        const livresEmprunterId = []
+        for (const element of data) {
+            livresEmprunterId.push(element.livreId)
+        }
+
+        const livre = await db.livre.findAll()
+        const livresPasEmprunter = livre.filter(
+            elem => !livresEmprunterId.includes(elem.id)
+        )
+        response.write(JSON.stringify(livresPasEmprunter))
+        response.end()
     }
 }
 module.exports = livreController

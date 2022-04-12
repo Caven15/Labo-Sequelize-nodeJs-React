@@ -172,6 +172,14 @@
             if (path === "/livre" && request.method === 'GET' && query.domaineId){
                 livreController.getAllLivreByDomaineId(response, query.domaineId)
             }
+            // get all livre emprunter
+            if (path === "/livre/getAllEmprunt" && request.method === 'GET'){
+                livreController.getLivreEmprunter(response)
+            }
+            // get all livre pas emprunter
+            if (path === "/livre/getAllPasEmprunt" && request.method === 'GET'){
+                livreController.getLivrePasEmprunter(response)
+            }
             // create
             if (path === "/livre" && request.method === 'POST'){
                 getRequestData(request)
