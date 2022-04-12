@@ -1,0 +1,15 @@
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (1, 'Adventure|Children', 'Acute transverse myelitis in demyelinating disease of central nervous system', '1979-07-27', '1979-12-25');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (2, 'Drama', 'Other sprain of right middle finger, initial encounter', '1970-05-15', '1981-07-02');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (3, 'Crime|Drama|Film-Noir', 'Stress fracture, left tibia, subsequent encounter for fracture with malunion', '1994-01-23', '1972-07-10');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (4, 'Comedy|Drama', 'Other secondary chronic gout, right wrist, with tophus (tophi)', '1973-07-14', '1993-01-30');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (5, 'Comedy|Crime|Drama', 'Refractory anemia, unspecified', '1969-06-19', '1962-04-30');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (6, 'Comedy|Fantasy|Mystery', 'Hematocolpos', '1990-06-01', '1991-09-25');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (7, 'Documentary', 'Dislocation of interphalangeal joint of unspecified toe(s), sequela', '1982-02-01', '1969-03-27');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (8, 'Animation|Children', 'Puncture wound without foreign body of unspecified front wall of thorax without penetration into thoracic cavity, initial encounter', '2000-04-03', '1965-06-01');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (9, 'Drama|War', 'Other injury of gallbladder, sequela', '1987-04-28', '1966-10-29');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (10, 'Western', 'Lateral subluxation of right patella, subsequent encounter', '1967-05-26', '1985-12-25');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (11, 'Crime|Drama', 'Other thoracic, thoracolumbar and lumbosacral intervertebral disc degeneration', '1968-02-19', '1970-11-14');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (12, 'Drama', 'Drowning and submersion due to falling or jumping from crushed unspecified watercraft, sequela', '1977-11-04', '1963-11-01');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (13, 'Drama', 'Maternal care for (suspected) damage to fetus by other medical procedures, fetus 3', '1973-10-03', '1971-02-20');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (14, 'Action|Adventure|Comedy', 'Papyraceous fetus, second trimester, fetus 2', '2001-08-28', '2003-01-13');
+insert into domaines (id, nom, libelle, createdAt, updatedAt) values (15, 'Drama', 'Tinnitus', '1987-01-22', '1971-04-03');
