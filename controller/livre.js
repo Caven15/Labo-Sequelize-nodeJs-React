@@ -10,6 +10,24 @@ const livreController = {
                 response.end()
             })
     },
+    // get all by auteurId
+    getAllLivreByAuteurId(response, auteurId){
+        db.livre.findAll({where: {auteurId: auteurId}
+    })
+    .then((data) => {
+        response.write(JSON.stringify(data,null,1))
+        response.end()
+    })
+    },
+    // get all by domaineId
+    getAllLivreByDomaineId(response, domaineId){
+        db.livre.findAll({where: {domaineId: domaineId}
+    })
+    .then((data) => {
+        response.write(JSON.stringify(data,null,1))
+        response.end()
+    })
+    },
     // get one
     getOneLivre(response, id){
         db.livre.findByPk(id)

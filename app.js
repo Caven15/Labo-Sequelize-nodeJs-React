@@ -152,6 +152,14 @@
             if (path === "/livre" && request.method === 'GET' && query.id){
                 livreController.getOneLivre(response, query.id)
             }
+            // get all by auteurId
+            if (path === "/livre" && request.method === 'GET' && query.auteurId){
+                livreController.getAllLivreByAuteurId(response, query.auteurId)
+            }
+            // get all by domaineId
+            if (path === "/livre" && request.method === 'GET' && query.domaineId){
+                livreController.getAllLivreByDomaineId(response, query.domaineId)
+            }
             // create
             if (path === "/livre" && request.method === 'POST'){
                 getRequestData(request)
