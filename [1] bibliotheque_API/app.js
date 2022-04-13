@@ -180,6 +180,10 @@
             if (path === "/livre/getAllPasEmprunt" && request.method === 'GET'){
                 livreController.getLivrePasEmprunter(response)
             }
+            // get livre favoris
+            if (path === "/livre/favoris" && request.method === 'GET'){
+                livreController.getLivreFavoris(response)
+            }
             // create
             if (path === "/livre" && request.method === 'POST'){
                 getRequestData(request)

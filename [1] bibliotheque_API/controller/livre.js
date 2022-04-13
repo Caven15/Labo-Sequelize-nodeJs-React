@@ -112,7 +112,16 @@ const livreController = {
         const livresPasEmprunter = livre.filter(
             elem => !livresEmprunterId.includes(elem.id)
         )
-        response.write(JSON.stringify(livresPasEmprunter))
+        response.write(JSON.stringify(livresPasEmprunter, null, 2))
+        response.end()
+    },
+    async getLivreFavoris(response) {
+        const data = await db.emprunt.findAll({
+            attributes: ['livreId'],
+            distinct: true,
+            group: "livreId"
+        })
+        response.write(JSON.stringify(data, null, 2))
         response.end()
     }
 }
