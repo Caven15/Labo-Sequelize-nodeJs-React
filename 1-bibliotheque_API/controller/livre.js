@@ -74,13 +74,13 @@ const livreController = {
             })
 
             let tmp = 0
+            const indiceMax = []
+
             for (const element of data.count) {
                 if (element.count > tmp) {
                     tmp = element.count
                 }
             }
-
-            const indiceMax = []
 
             for(let i = 0; i < data.count.length; i++) {
                 if (data.count[i].count === tmp) {

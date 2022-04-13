@@ -1,4 +1,6 @@
 const db = require("../models/connection_db")
+const { Op } = require("sequelize")
+const { Sequelize } = require("sequelize")
 
 
 const auteurController = {
@@ -17,6 +19,38 @@ const auteurController = {
                 response.write(JSON.stringify(data,null,1))
                 response.end()
             })
+    },
+    // get auteur favoris
+    async getAuteurFavoris(response) {
+        const data = await db.livre.findAll({
+            include: [
+                {
+                    model: db.auteur,
+                    attributes: ['nom'],
+                },
+                {
+                    model: db.emprunt,
+                    attributes:{
+                        include: [[Sequelize.fn("COUNT", Sequelize.col("statut")), "nombreEmprunt"]],
+                        exclude: ['id','date_debut', 'date_fin', 'statut',  'createdAt', 'updatedAt', 'clientId', 'livreId']
+                    },
+                    where: {id: {[Op.not]: null}}
+                },
+                
+            ],
+            attributes:['id'],
+            group: "id"
+        })
+
+        let listeNomAuteur = [], listeNombreEmprunt = []
+
+        for (let i = 0; i < data.length; i++) {
+            listeNomAuteur.push(data[i].auteur.nom)
+            listeNombreEmprunt.push(data[i].emprunts.nombreEmprunt)
+        }
+
+        response.write(JSON.stringify(data, null, 2))
+        response.end()
     },
     // create
     insertAuteur(response, nom, prenom, date_naissance) {

@@ -28,6 +28,10 @@
             if (path === "/auteur" && request.method === 'GET' && query.id){
                 auteurController.getOneAuteur(response, query.id)
             }
+            // get favoris
+            if (path === "/auteur/favoris" && request.method === 'GET'){
+                auteurController.getAuteurFavoris(response)
+            }
             // create
             if (path === "/auteur" && request.method === 'POST'){
                 getRequestData(request)
@@ -81,6 +85,10 @@
             // get all
             if (path === "/domaine" && request.method === 'GET' && !query.id){
                 domaineController.getAllDomaines(response)
+            }
+            // get domaine favoris
+            if (path === "/domaine/favoris" && request.method === 'GET' && !query.id){
+                domaineController.getDomaineFavoris(response)
             }
             // get one
             if (path === "/domaine" && request.method === 'GET' && query.id){
