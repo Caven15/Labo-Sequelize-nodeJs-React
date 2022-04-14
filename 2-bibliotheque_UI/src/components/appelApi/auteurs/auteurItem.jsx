@@ -5,18 +5,15 @@ const AuteurItem = function(props){
     return(
         <div className="auteurItem">
             <div className="conteneur">
-            <span className="auteurItemTexteBegin">nom :{nom}</span>
-
+                <span>nom : {nom}</span> 
             </div>
             <div className="conteneur">
-            <span className="auteurItemTexteCenter">prénom : {prenom}</span>
+                <span>prénom : {prenom}</span>
             </div>
             <div className="conteneur">
-
-            <span className="auteurItemTexteEnd">année de naissance : {anneeNaissance.getFullYear()}</span>
+                <span>année : {anneeNaissance.getFullYear()}</span>
             </div>
         </div>
     )
 }
-
 export default AuteurItem

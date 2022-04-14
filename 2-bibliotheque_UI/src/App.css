@@ -1,15 +1,28 @@
-body{
+*{
   margin: 0px;
   padding: 0px;
 }
 
 .auteurItem{
   border:  solid black 2px;
-  margin: 10px;
+  border-radius: 10px;
+  margin: 2%;
   display: flex;
-  justify-content: space-between;
+  padding-left: 5%;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.395);
+}
+
+.contour{
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .conteneur{
-  width: 20%;
+  padding: 5%;
+  width: 24%;
+}
+.header{
+  background-color: rgb(91, 91, 91);
+  height: 10vh;
 }

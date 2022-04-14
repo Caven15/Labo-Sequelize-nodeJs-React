@@ -17,13 +17,17 @@
     return (
       <BrowserRouter>
         <div>
-          <nav>
+          <nav className='header'>
+          <div>
+          <h3>bibliotheque</h3>
           <Link to="/">Home</Link>
           <Link to="/auteurs">Auteur</Link>
+          </div>
+          
           </nav>
           <Routes>
             <Route path="/auteurs" element={<AuteurList />}></Route>
-            <Route path="/" element={<p>Bonjour</p>}></Route>
+            <Route path="/" element={<p>page d'acceuil</p>}></Route>
           </Routes>
         </div>
       </BrowserRouter>

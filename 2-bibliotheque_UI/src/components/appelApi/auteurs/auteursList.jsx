@@ -25,7 +25,7 @@ const AuteurList = function () {
         //     })
 
     return(
-        <div>
+        <div className='contour'>
             {auteursJSX}
         </div>
     )
