@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+//#region import
+  /* eslint-disable jsx-a11y/heading-has-content */
+  import './App.css';
+  import { BrowserRouter, Routes, Route, Link } from "react-router-dom" // instalation obligatoire => npm install react-router-dom@6
+  import AuteurList from './components/appelApi/auteurs/auteursList';
+//#endregion
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+//#region Application
+  function App() {
+    // state
+      // const [inputNb , setInputNb] = useState("");
+
+    //fonction
+
+    return (
+      <BrowserRouter>
+        <div>
+          <nav>
+          <Link to="/">Home</Link>
+          <Link to="/auteurs">Auteur</Link>
+          </nav>
+          <Routes>
+            <Route path="/auteurs" element={<AuteurList />}></Route>
+            <Route path="/" element={<p>Bonjour</p>}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    );
+  }
+
+  export default App;
+//#endregion
+

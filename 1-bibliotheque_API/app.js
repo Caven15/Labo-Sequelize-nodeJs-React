@@ -17,7 +17,20 @@
         const currentUrl = url.parse(request.url, true)
         const path = currentUrl.pathname
         const query = currentUrl.query
-        response.writeHead(200, { "content-Type": "application/json" })
+
+        const headers = {
+
+            'Access-Control-Allow-Origin': '*',
+    
+            'Access-Control-Allow-Methods': 'OPTIONS, POST, GET, PUT, DELETE',
+    
+            'Access-Control-Max-Age': 2592000, // 30 days
+    
+            "Content-Type": "application/json"
+    
+        };
+
+        response.writeHead(200, headers)
 
         //#region auteur
             // get all
