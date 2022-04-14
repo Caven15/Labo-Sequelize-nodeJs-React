@@ -25,8 +25,21 @@ const AuteurList = function () {
         //     })
 
     return(
-        <div className='contour'>
-            {auteursJSX}
+        <div>
+            <p className='titre'>liste des auteurs</p>
+            <div className="table-responsive contour">
+                <table className="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope='col'>#</th>
+                            <th scope='col'>Nom</th>
+                            <th scope='col'>Prenom</th>
+                            <th scope='col'>année</th>
+                        </tr>
+                    </thead>
+                        {auteursJSX}
+                </table>
+            </div>
         </div>
     )
 }

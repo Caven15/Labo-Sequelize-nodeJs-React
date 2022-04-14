@@ -1,19 +1,20 @@
+// import Container from 'react-bootstrap/Container';
 const AuteurItem = function(props){
-    const {nom, prenom, date_naissance} = props
+    const {id, nom, prenom, date_naissance} = props
+
 
     const anneeNaissance = new Date(date_naissance)
     return(
-        <div className="auteurItem">
-            <div className="conteneur">
-                <span>nom : {nom}</span> 
-            </div>
-            <div className="conteneur">
-                <span>prénom : {prenom}</span>
-            </div>
-            <div className="conteneur">
-                <span>année : {anneeNaissance.getFullYear()}</span>
-            </div>
-        </div>
+        <tbody>
+            <tr>
+                <td>{id}</td>
+                <td>{nom}</td>
+                <td>{prenom}</td>
+                <td>{anneeNaissance.getFullYear()}</td>
+            </tr>
+        </tbody>
+        
+        
     )
 }
 export default AuteurItem
