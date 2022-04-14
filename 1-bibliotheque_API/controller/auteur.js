@@ -42,14 +42,42 @@ const auteurController = {
             group: "id"
         })
 
-        let listeNomAuteur = [], listeNombreEmprunt = []
+        let listeNomAuteur = [], listeNombreEmprunt = [], listeNomAuteurFiltrer = [], listeNombreEmpruntFiltrer = []
+        let nombreTempo = 0, nomTempo = "", nombreFinal = 0, nomFinal
+
 
         for (let i = 0; i < data.length; i++) {
+            console.log(data[i].emprunts[0])
             listeNomAuteur.push(data[i].auteur.nom)
-            listeNombreEmprunt.push(data[i].emprunts.nombreEmprunt)
+            listeNombreEmprunt.push(data[i].emprunts[0].toJSON().nombreEmprunt)
         }
 
-        response.write(JSON.stringify(data, null, 2))
+        for (let i = 0; i < data.length; i++) {
+            nomTempo = listeNomAuteur[i]
+            nombreTempo = 0
+            for (let i = 0; i < data.length; i++) {
+                if (nomTempo === listeNomAuteur[i]) {
+                    nombreTempo += listeNombreEmprunt[i]
+                }
+            }
+            listeNombreEmpruntFiltrer.push(nombreTempo)
+            listeNomAuteurFiltrer.push(nomTempo)
+
+            for (let i = 0; i < listeNombreEmpruntFiltrer.length; i++) {
+                if (nombreFinal < listeNombreEmpruntFiltrer[i]) {
+                    nomFinal = listeNomAuteurFiltrer[i]
+                    nombreFinal = listeNombreEmpruntFiltrer[i]
+                }
+            }
+        }
+
+        const auteurFavoris = await db.auteur.findAll({
+            where:{
+                nom: nomFinal
+            }
+        })
+
+        response.write(JSON.stringify(auteurFavoris, null, 2))
         response.end()
     },
     // create
