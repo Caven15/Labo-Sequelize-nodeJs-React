@@ -34,7 +34,7 @@ const AuteurList = function () {
                             <th scope='col'>#</th>
                             <th scope='col'>Nom</th>
                             <th scope='col'>Prenom</th>
-                            <th scope='col'>année</th>
+                            <th scope='col'>Age</th>
                         </tr>
                     </thead>
                         {auteursJSX}
