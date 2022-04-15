@@ -1,10 +1,11 @@
 //#region import
   /* eslint-disable jsx-a11y/heading-has-content */
   import './App.css';
+  import 'bootstrap/dist/css/bootstrap.min.css';
   import { BrowserRouter, Routes, Route, Link } from "react-router-dom" // instalation obligatoire => npm install react-router-dom@6
   import AuteurList from './components/appelApi/auteurs/auteursList';
+  import AjoutAuteur from './components/appelApi/auteurs/addAuteur';
 
-  import Container from 'react-bootstrap/Container';
 //#endregion
 
 
@@ -19,43 +20,40 @@
     return (
       <BrowserRouter>
       <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/">Acceuil</Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="nav-link active" aria-current="page" to="livres">Liste des livres</Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                <li className="nav-item">
+                  <Link className="nav-link" to="auteurs">Liste des auteurs</Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <li className="nav-item dropdown">
+                  <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ajout
+                  </Link>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><Link className="dropdown-item" to="/">Livre</Link></li>
+                    <li><Link className="dropdown-item" to="/">Emprunt</Link></li>
+                    <li><Link className="dropdown-item" to="ajoutAuteur">Auteur</Link></li>
+                  </ul>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
         </header>
-        <div>
-          <nav className='header'>
-              <div>
-                <h3>bibliotheque</h3>
-                <Link to="/">Home</Link>
-                <Link to="/auteurs">Auteur</Link>
-              </div>
-          </nav>
           <Routes>
             <Route path="/auteurs" element={<AuteurList />}></Route>
+            <Route path="/ajoutAuteur" element={<AjoutAuteur />}></Route>
             <Route path="/" element={<p>page d'acceuil</p>}></Route>
           </Routes>
-        </div>
-        
-        
       </BrowserRouter>
     );
   }

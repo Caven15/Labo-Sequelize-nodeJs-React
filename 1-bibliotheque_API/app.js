@@ -18,6 +18,9 @@
         const path = currentUrl.pathname
         const query = currentUrl.query
 
+        console.log(path)
+        console.log(request.method)
+
         const headers = {
 
             'Access-Control-Allow-Origin': '*',

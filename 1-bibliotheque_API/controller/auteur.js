@@ -82,6 +82,7 @@ const auteurController = {
     },
     // create
     insertAuteur(response, nom, prenom, date_naissance) {
+        console.log(nom, prenom, date_naissance)
         db.auteur.create({
             nom: nom,
             prenom: prenom,

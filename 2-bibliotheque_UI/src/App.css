@@ -2,10 +2,27 @@
   margin: 0px;
   padding: 0px;
 }
+body{
+  background-color: rgb(93, 93, 93);
+}
 .contour{
+  border-radius: 30px;
   margin-left: 10%;
   margin-right: 10%;
+  padding: 3%;
+  background-color: rgb(94, 94, 94);
 }
+
+.contour-form{
+  border-radius: 10px;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 3%;
+  background-color: rgb(38, 38, 38);
+  color: white;
+}
+
 .conteneur{
   padding: 1%;
 }
@@ -14,7 +31,11 @@
   height: 10vh;
 }
 .titre{
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   font-weight: bold;
+}
+
+.fond-Liste{
+  padding-bottom: 0;
 }
