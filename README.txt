@@ -10,13 +10,14 @@ description du projet :
 
             - language MySql
             - créer sur php my admin
-            - gerer par Sequelize
         
         back-end :
 
-            - nodeJs 
+            - librairie nodeJs 
+            - librairie sequelize
 
         front-end :
 
             - framework react
+            - librairie fetch consommer l'api
         
