@@ -1,4 +1,3 @@
-// import Container from 'react-bootstrap/Container';
 const AuteurItem = function(props){
     const {id, nom, prenom, date_naissance} = props
 

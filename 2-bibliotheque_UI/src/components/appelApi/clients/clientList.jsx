@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import ClientItem from "./clienItem";
+import { useEffect, useState } from "react"
+import ClientItem from "./clientItem"
 
 const ClientList = function () {
     //useState
-    const {clients, setClients} = useState([])
+    const [clients, setClients] = useState([])
     const clientsJSX = clients.map(
         elem => <ClientItem key={elem.nom}{...elem}></ClientItem>
     )
+    
 
     //useEffect
         useEffect(() => {
@@ -15,7 +16,8 @@ const ClientList = function () {
                 .then(data => {
                     setClients(p => data)
                 })
-        })
+            }, [])
+        
     return(
         <div>
             <p className='titre'>liste des clients</p>

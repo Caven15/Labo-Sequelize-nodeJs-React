@@ -15,12 +15,7 @@ const AuteurList = function () {
                 .then(data => {
                     setAuteurs(p => data)
                 })  
-        }, [])
-        // useEffect(() => {
-        //     fetch("http://localhost:3000/auteur", {
-        //         method: "POST",
-        //         body: JSON.stringify({ name: "Jean" })
-        //     })
+        }, []) 
 
     return(
         <div>

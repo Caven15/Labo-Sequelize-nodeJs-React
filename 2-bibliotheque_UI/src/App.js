@@ -4,8 +4,9 @@
   import 'bootstrap/dist/css/bootstrap.min.css';
   import { BrowserRouter, Routes, Route, Link } from "react-router-dom" // instalation obligatoire => npm install react-router-dom@6
   import AuteurList from './components/appelApi/auteurs/auteursList';
-  import ClientList from './components/appelApi/clients/clientList'
+  import ClientList from './components/appelApi/clients/clientList';
   import AjoutAuteur from './components/appelApi/auteurs/addAuteur';
+  import Home from './components/vue/home';
 
 //#endregion
 
@@ -65,7 +66,7 @@
             <Route path="/auteurs" element={<AuteurList />}></Route>
             <Route path="/clients" element={<ClientList />}></Route>
             <Route path="/ajoutAuteur" element={<AjoutAuteur />}></Route>
-            <Route path="/" element={<p>page d'acceuil</p>}></Route>
+            <Route path="/" element={<Home />}></Route>
           </Routes>
       </BrowserRouter>
     );
