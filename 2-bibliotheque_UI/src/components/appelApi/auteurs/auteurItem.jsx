@@ -16,8 +16,6 @@ const AuteurItem = function(props){
                 <td>{tmp}</td>
             </tr>
         </tbody>
-        
-        
     )
 }
 export default AuteurItem

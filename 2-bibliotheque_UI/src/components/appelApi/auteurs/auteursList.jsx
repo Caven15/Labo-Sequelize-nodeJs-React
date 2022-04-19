@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import AuteurItem from "./auteurItem"
 
-
-
 const AuteurList = function () {
     // useState
     const [auteurs, setAuteurs] = useState([])
@@ -16,7 +14,7 @@ const AuteurList = function () {
                 .then(response => response.json())
                 .then(data => {
                     setAuteurs(p => data)
-                })
+                })  
         }, [])
         // useEffect(() => {
         //     fetch("http://localhost:3000/auteur", {
@@ -43,6 +41,5 @@ const AuteurList = function () {
         </div>
     )
 }
-
 
 export default AuteurList

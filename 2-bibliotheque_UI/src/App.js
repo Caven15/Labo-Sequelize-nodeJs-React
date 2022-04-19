@@ -4,6 +4,7 @@
   import 'bootstrap/dist/css/bootstrap.min.css';
   import { BrowserRouter, Routes, Route, Link } from "react-router-dom" // instalation obligatoire => npm install react-router-dom@6
   import AuteurList from './components/appelApi/auteurs/auteursList';
+  import ClientList from './components/appelApi/clients/clientList'
   import AjoutAuteur from './components/appelApi/auteurs/addAuteur';
 
 //#endregion
@@ -28,12 +29,12 @@
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link active" aria-current="page" to="livres">Liste des livres</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="auteurs">Liste des auteurs</Link>
-                </li>
+                </li> */}
                 <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Ajout
@@ -44,6 +45,17 @@
                     <li><Link className="dropdown-item" to="ajoutAuteur">Auteur</Link></li>
                   </ul>
                 </li>
+                <li className="nav-item dropdown">
+                  <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Listes
+                  </Link>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><Link className="dropdown-item" to="/">Livres</Link></li>
+                    <li><Link className="dropdown-item" to="/">Emprunt</Link></li>
+                    <li><Link className="dropdown-item" to="/auteurs">Auteurs</Link></li>
+                    <li><Link className="dropdown-item" to="/clients">clients</Link></li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
@@ -51,13 +63,13 @@
         </header>
           <Routes>
             <Route path="/auteurs" element={<AuteurList />}></Route>
+            <Route path="/clients" element={<ClientList />}></Route>
             <Route path="/ajoutAuteur" element={<AjoutAuteur />}></Route>
             <Route path="/" element={<p>page d'acceuil</p>}></Route>
           </Routes>
       </BrowserRouter>
     );
   }
-
   export default App;
 //#endregion
 
