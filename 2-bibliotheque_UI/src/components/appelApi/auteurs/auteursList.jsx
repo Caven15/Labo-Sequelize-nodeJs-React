@@ -10,26 +10,24 @@ const AuteurList = function () {
 
     // useEffect
         useEffect(() => {
+            getAuteur()
+        }, []) 
+
+    // fonctions
+        const getAuteur = function() {
             fetch("http://localhost:3000/auteur")
                 .then(response => response.json())
                 .then(data => {
                     setAuteurs(p => data)
                 })  
-        }, []) 
+        }
 
     return(
         <div>
             <p className='titre'>liste des auteurs</p>
             <div className="table-responsive contour">
                 <table className="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th scope='col'>#</th>
-                            <th scope='col'>Nom</th>
-                            <th scope='col'>Prenom</th>
-                            <th scope='col'>Age</th>
-                        </tr>
-                    </thead>
+                    <thead></thead>
                         {auteursJSX}
                 </table>
             </div>

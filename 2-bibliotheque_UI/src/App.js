@@ -2,6 +2,7 @@
   /* eslint-disable jsx-a11y/heading-has-content */
   import './App.css';
   import 'bootstrap/dist/css/bootstrap.min.css';
+  import {Card} from 'react-bootstrap';
   import { BrowserRouter, Routes, Route, Link } from "react-router-dom" // instalation obligatoire => npm install react-router-dom@6
   import AuteurList from './components/appelApi/auteurs/auteursList';
   import ClientList from './components/appelApi/clients/clientList';
@@ -68,7 +69,16 @@
             <Route path="/ajoutAuteur" element={<AjoutAuteur />}></Route>
             <Route path="/" element={<Home />}></Route>
           </Routes>
+          <Card className="text-center">
+            <Card.Body className='bg-dark'>
+              <Card.Text className="text-muted">
+                ici je rajoute mon contenus
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-muted  bg-dark">© Web-App 2022</Card.Footer>
+          </Card>
       </BrowserRouter>
+      
     );
   }
   export default App;
