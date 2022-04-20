@@ -48,8 +48,9 @@ const AjoutAuteur = function () {
     //#endregion
 
     return(
-        <div className='contour-form'>
+        <div className='Home'>
             <p className='titre'>ajouter un Auteur</p>
+            <div className='contour-form'>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} lg controlId="validationCustom01">
@@ -87,7 +88,7 @@ const AjoutAuteur = function () {
                     </Form.Group>
                 </Row>
                 <Row className='m-auto'>
-                <Stack direction="horizontal" gap={3}>
+                <Stack direction="horizontal" gap={1}>
                     <div>
                     <Form.Group className="m-auto">
                         <Form.Check
@@ -103,6 +104,8 @@ const AjoutAuteur = function () {
                 </Row>
             </Form>
         </div>
+        </div>
+        
     )
     
 }

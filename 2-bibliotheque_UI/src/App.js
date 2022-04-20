@@ -72,7 +72,7 @@
           <Card className="text-center">
             <Card.Body className='bg-dark'>
               <Card.Text className="text-muted">
-                ici je rajoute mon contenus
+                ici j'ajoute mon contenus
               </Card.Text>
             </Card.Body>
             <Card.Footer className="text-muted  bg-dark">© Web-App 2022</Card.Footer>

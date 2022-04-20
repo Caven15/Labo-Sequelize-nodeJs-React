@@ -8,8 +8,9 @@ const AuteurItem = function(props){
 
     // fonction 
     const deleteAuteur = function(id) {
-        fetch(`localhost:3000/auteur?id=${id}`,{ 
-            method: "DELETE"
+        fetch("http://localhost:3000/auteur?id=" + id,{ 
+            method: 'DELETE',
+            headers: {"Content-Type":"application/json"}
         })
             .then((data) =>{
                 data.json().then((response) =>{
@@ -30,7 +31,7 @@ const AuteurItem = function(props){
                 <td>{nom}</td>
                 <td>{prenom}</td>
                 <td>
-                <Stack className="justify-content-center" direction="horizontal" gap={5}>
+                <Stack className="justify-content-center" direction="horizontal" gap={3}>
                     <div><Button variant="primary"><BsSearch /></Button> </div>
                     <div><Button variant="success"><GrUpdate /></Button></div>
                     <div><Button variant="danger" onClick={() => deleteAuteur(id)}><BsFillTrashFill /></Button></div>
