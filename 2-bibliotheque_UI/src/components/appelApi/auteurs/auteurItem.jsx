@@ -3,25 +3,35 @@ import { GrUpdate } from "react-icons/gr";
 import {Button} from 'react-bootstrap';
 import { Stack } from "react-bootstrap";
 import AuteurList from "./auteursList";
+import axios from 'axios'; 
 const AuteurItem = function(props){
     const {id, nom, prenom} = props
 
     // fonction 
     const deleteAuteur = function(id) {
-        fetch("http://localhost:3000/auteur?id=" + id,{ 
-            method: 'DELETE',
-            headers: {"Content-Type":"application/json"}
-        })
-            .then((data) =>{
-                data.json().then((response) =>{
-                    console.warn(response)
+        // méthode fetch
+            // fetch("http://localhost:3000/auteur?id=" + id,{ 
+            //     method: 'DELETE',
+            //     headers: {"Content-Type":"application/json"}
+            // })
+            //     .then(() =>{
+            //         console.log(`${id} suprimmer avec succès !`)
+            //         AuteurList.getAuteur()
+            //     })
+            //     .catch((err) =>{
+            //         console.log("Erreur de suppression de l'auteur nr : " + id)
+            //         console.log(err)
+            //     })
+        // méthode axios
+            axios.delete("http://localhost:3000/auteur?id=" + id)
+                .then(() =>{
+                    console.log(`${id} suprimmer avec succès !`)
                     AuteurList.getAuteur()
                 })
-            })
-            .catch((err) =>{
-                console.log("Erreur de suppression de l'auteur nr : " + id)
-                console.log(err)
-            })
+                .catch((err) =>{
+                    console.log("Erreur de suppression de l'auteur nr : " + id)
+                    console.log(err)
+                })
     }
     
     return(

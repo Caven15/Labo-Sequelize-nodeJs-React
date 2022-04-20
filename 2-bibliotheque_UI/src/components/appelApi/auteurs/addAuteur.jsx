@@ -26,7 +26,7 @@ const AjoutAuteur = function () {
                 })
             })
                 .then(() => {
-                    console.log("hello then")
+                    console.log("ajout comfirmer !")
                     navigate("/")
                 })
                 .catch((err) => {
