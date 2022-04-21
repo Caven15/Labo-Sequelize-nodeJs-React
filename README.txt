@@ -1,23 +1,20 @@
 description du projet : 
 
-    réalisation d'un projet portant sur le theme des bibliotheques. un exemple de la base de donnée est présente a des fins de test.
-    Cependant, celle-ci est géré avec Sequelize au sein de nodeJs. la partie front end est consommé par le framework react.
+réalisation d'un projet portant sur le theme des bibliotheques. un exemple de la base de donnée est présente a des fins de test.
+Cependant, celle-ci est géré avec Sequelize au sein de nodeJs. la partie front end est consommé par le framework react.
 
+base de donnée :
 
-    techno utilisée 
+    - language MySql
+    - db créer sur phpMyAdmin
 
-        base de donnée :
+back-end :
 
-            - language MySql
-            - créer sur php my admin
-        
-        back-end :
+    - nodeJs 
+    - librairie sequelize
 
-            - librairie nodeJs 
-            - librairie sequelize
+front-end :
 
-        front-end :
+    - framework react
+    - fetch pour la consommation de l'api
 
-            - framework react
-            - librairie fetch consommer l'api
-        
