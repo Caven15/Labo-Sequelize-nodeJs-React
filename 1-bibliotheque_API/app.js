@@ -18,25 +18,29 @@
         const path = currentUrl.pathname
         const query = currentUrl.query
 
-        console.log(path)
-        console.log(request.method)
+
+
+        console.log(`la route "${path}" renvoie la méthode "${request.method}"`)
 
         const headers = {
 
             'Access-Control-Allow-Origin': '*',
     
             'Access-Control-Allow-Methods': 'OPTIONS, POST, GET, PUT, DELETE',
+
+            'Access-Control-Request-Method' :'OPTIONS, POST, GET, PUT, DELETE',
     
             'Access-Control-Max-Age': 2592000, // 30 days
     
             "Content-Type": "application/json"
     
         };
-
+        
         response.writeHead(200, headers)
 
         //#region auteur
             // get all
+            
             if (path === "/auteur" && request.method === 'GET' && !query.id){
                 auteurController.getAllAuteurs(response)
             }
@@ -65,6 +69,11 @@
             // delete
             if (path === "/auteur" && request.method === 'DELETE' && query.id){
                 auteurController.deleteAuteur(response, query.id)
+            }
+
+            if(path === "/auteur" && request.method === "OPTIONS"){
+                response.statusCode = "204"
+                response.end()
             }
         //#endregion
 

@@ -1,14 +1,17 @@
 import { BsFillTrashFill, BsSearch } from "react-icons/bs"; // installation => npm install react-icons --save
 import { GrUpdate } from "react-icons/gr";
+import { useNavigate } from "react-router-dom"
 import {Button} from 'react-bootstrap';
 import { Stack } from "react-bootstrap";
-import AuteurList from "./auteursList";
+// import AuteurList from "./auteursList";
 import axios from 'axios'; 
 const AuteurItem = function(props){
     const {id, nom, prenom} = props
+    const navigate = useNavigate()
 
     // fonction 
     const deleteAuteur = function(id) {
+        
         // méthode fetch
             // fetch("http://localhost:3000/auteur?id=" + id,{ 
             //     method: 'DELETE',
@@ -26,7 +29,7 @@ const AuteurItem = function(props){
             axios.delete("http://localhost:3000/auteur?id=" + id)
                 .then(() =>{
                     console.log(`${id} suprimmer avec succès !`)
-                    AuteurList.getAuteur()
+                    navigate("/auteurs")
                 })
                 .catch((err) =>{
                     console.log("Erreur de suppression de l'auteur nr : " + id)

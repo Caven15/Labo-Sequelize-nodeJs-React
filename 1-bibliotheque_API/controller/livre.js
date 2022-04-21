@@ -11,7 +11,7 @@ const livreController = {
                     response.end()
                 })
         },
-    // get all by auteurId
+    // get all by auteurId 
         getAllLivreByAuteurId(response, auteurId){
             db.livre.findAll({where: {auteurId: auteurId}
         })

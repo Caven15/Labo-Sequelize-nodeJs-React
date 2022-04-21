@@ -107,6 +107,7 @@ const auteurController = {
     },
     // delete
     deleteAuteur(response, id) {
+        console.log("tutut")
         db.auteur.destroy({
             where: {
                 id: id

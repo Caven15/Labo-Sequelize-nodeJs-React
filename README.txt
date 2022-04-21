@@ -11,7 +11,7 @@ base de donnée :
 back-end :
 
     - nodeJs 
-    - librairie sequelize
+    - orm sequelize
 
 front-end :
 
